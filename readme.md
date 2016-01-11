@@ -2,9 +2,15 @@
 ### A Seneca.js decorator that adds a fire-and-forget method.
 
 # Seneca-fire-and-forget
+
+[![npm version][npm-badge]][npm-url]
+[![Dependency Status][david-badge]][david-url]
+
 This is a plugin for Seneca that adds a simple `.fire(pattern[, cb])` method to
 your Seneca instance. This acts in a fire-and-forget manner, so this will
 swallow any errors from the act you called. _The callback is optional._
+
+ - lead maintainer: [Glen Keane][lead]
 
 ## Example
 ```javascript
@@ -75,3 +81,9 @@ Copyright Glen Keane and other contributors 2016, Licensed under [MIT][].
 [MIT]: ./LICENSE
 [contrib]: ./CONTRIBUTING.md
 [contribGuide]: http://senecajs.org/contribute/
+[npm-badge]: https://img.shields.io/npm/v/seneca-fire-and-forget.svg
+[npm-url]: https://npmjs.com/package/seneca-fire-and-forget
+[david-badge]: https://david-dm.org/senecajs/seneca-fire-and-forget.svg
+[david-url]: https://david-dm.org/senecajs/seneca-fire-and-forget
+
+[lead]: https://github.com/thekemkid
