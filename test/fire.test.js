@@ -12,8 +12,11 @@ var expect = Code.expect
 
 var FAF = require('..')
 
+// "remembered" means that there was a callback for the fire statement
+// "forgot" means that there was no callback for the fire statement
+
 describe('fire-and-forget', function () {
-  it('Fired a pattern which doesn\'t exist and forgot', function (done) {
+  it('Fired a pattern which doesn\'t exist and remembered', function (done) {
     var seneca = Seneca({ log: 'silent' })
     seneca.use(FAF)
 
@@ -25,7 +28,17 @@ describe('fire-and-forget', function () {
     })
   })
 
-  it('Fired a pattern which exist and got data back', function (done) {
+  it('Fired a pattern which doesn\'t exist and forgot', function (done) {
+    var seneca = Seneca({ log: 'silent' })
+    seneca.use(FAF)
+
+    seneca.ready(function () {
+      seneca.fire({ role: 'foo' })
+      setTimeout(done, 100)
+    })
+  })
+
+  it('Fired a pattern which existed and remembered', function (done) {
     var seneca = Seneca({ log: 'silent' })
     seneca.use(FAF)
 
@@ -42,7 +55,7 @@ describe('fire-and-forget', function () {
     })
   })
 
-  it('Fired a pattern which exists and but didn\'t care about a response', function (done) {
+  it('Fired a pattern which existed and forgot', function (done) {
     var seneca = Seneca({ log: 'silent' })
     seneca.use(FAF)
 
@@ -52,17 +65,7 @@ describe('fire-and-forget', function () {
 
     seneca.ready(function () {
       seneca.fire({ role: 'foo' })
-      done()
-    })
-  })
-
-  it('Fired a pattern which didn\'t exist and and didn\'t care about a response', function (done) {
-    var seneca = Seneca({ log: 'silent' })
-    seneca.use(FAF)
-
-    seneca.ready(function () {
-      seneca.fire({ role: 'foo' })
-      done()
+      setTimeout(done, 100)
     })
   })
 })

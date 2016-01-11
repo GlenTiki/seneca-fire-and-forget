@@ -25,14 +25,18 @@ seneca.fire({ role: 'foo', name: 'glen' })
 seneca.fire({ role: 'bar', name: 'glen' })
 
 // Firing and using the reply data
-seneca.fire({ role: 'foo', name: 'glen' }, (reply) => {
-  // Notice no error passed back...
+seneca.fire({ role: 'foo', name: 'glen' }, (err, reply) => {
+  if (err) {
+    //maybe handle an error if it happens?
+  }
   console.log(reply.msg)
 })
 
 // Firing, but no reply to be expected
-seneca.fire({ role: 'bar', name: 'glen' }, (reply) => {
-  // This will only be called if the reply is OKAY, no error, etc.
+seneca.fire({ role: 'bar', name: 'glen' }, (err, reply) => {
+  if (err) {
+    //maybe handle an error if it happens?
+  }
   console.log(reply.msg)
 })
 
@@ -45,11 +49,13 @@ seneca.fire(args[, callback])
 
 ### `args`
 
-  - your standard  `seneca` argument object/pattern, which you would expect to call any function with.
+your standard  `seneca` argument object/pattern, which you would expect to call any function with.
 
-### `callback` (optional)
+### `callback` **(optional)**
 
-  - A callback which can be called if there has been no error returned by the function you called (such as pattern-not-found, etc). This will get any reply data that the function has sent you. You don't need to provide this if you don't want to.
+Function which can be called, taking two arguments:
+  - **Error**: This is any error which was generated when calling the pattern (eg. act_not_found).
+  - **Result**: This is the result returned by the `seneca` function for the pattern you pass in.
 
 ## Contributing
 
