@@ -6,19 +6,20 @@ function noop () {}
 module.exports = function () {
   var seneca = this
 
-  seneca.decorate('fire', (args, done) => {
+  delete seneca.fixedargs.fatal$
+
+  seneca.decorate('fire', (args, callback) => {
     args.fatal$ = false
 
-    done = done || noop
+    callback = callback || noop
 
-    return seneca.act(args, (err, result) => {
+    seneca.act(args, (err, result) => {
       if (err) {
-        return seneca.log.info('Seneca-fire-and-forget got an error firing:',
-                                  args, '\n\n', err)
+        seneca.log.info('Seneca-fire-and-forget error firing:', args, '\n\n', err)
+        return callback(err)
       }
-      else {
-        return done(result)
-      }
+
+      return callback(null, result)
     })
   })
 
