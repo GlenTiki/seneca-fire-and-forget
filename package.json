@@ -20,7 +20,10 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "author": "Glen Keane",
+  "author": "Glen Keane (https://github.com/thekemkid)",
+  "contributors": [
+    "Wyatt Preul (https://github.com/geek)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/thekemkid/seneca-fire-and-forget/issues"
