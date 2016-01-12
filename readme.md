@@ -1,10 +1,13 @@
 ![Seneca](http://senecajs.org/files/assets/seneca-logo.png)
-### A Seneca.js decorator that adds a fire-and-forget method.
+# A [Seneca.js][] *decorator* that adds a fire-and-forget method.
 
 # Seneca-fire-and-forget
 
 [![npm version][npm-badge]][npm-url]
+[![Build Status][travis-badge]][travis-url]
+[![Coverage Status][coverage-badge]][coverage-url]
 [![Dependency Status][david-badge]][david-url]
+[![Gitter chat][gitter-badge]][gitter-url]
 
 This is a plugin for Seneca that adds a simple `.fire(pattern[, cb])` method to
 your Seneca instance. This acts in a fire-and-forget manner, so this will
@@ -75,6 +78,7 @@ If you wish to read more on our guidelines, feel free to
 ## License
 Copyright Glen Keane and other contributors 2016, Licensed under [MIT][].
 
+[Seneca.js]: https://www.npmjs.com/package/seneca
 [senecaOrg]: https://github.com/senecajs/
 [issue]: https://github.com/senecajs/seneca-fire-and-forget/issues
 [pr]:https://github.com/senecajs/seneca-fire-and-forget/pulls
@@ -83,7 +87,13 @@ Copyright Glen Keane and other contributors 2016, Licensed under [MIT][].
 [contribGuide]: http://senecajs.org/contribute/
 [npm-badge]: https://img.shields.io/npm/v/seneca-fire-and-forget.svg
 [npm-url]: https://npmjs.com/package/seneca-fire-and-forget
+[travis-badge]: https://api.travis-ci.org/senecajs/seneca-fire-and-forget.svg
+[travis-url]: https://travis-ci.org/senecajs/seneca-fire-and-forget
+[coverage-badge]:https://coveralls.io/repos/senecajs/seneca-fire-and-forget/badge.svg?branch=master&service=github
+[coverage-url]: https://coveralls.io/github/senecajs/seneca-fire-and-forget?branch=master
 [david-badge]: https://david-dm.org/senecajs/seneca-fire-and-forget.svg
 [david-url]: https://david-dm.org/senecajs/seneca-fire-and-forget
+[gitter-badge]: https://badges.gitter.im/senecajs/seneca.svg
+[gitter-url]: https://gitter.im/senecajs/seneca
 
 [lead]: https://github.com/thekemkid
